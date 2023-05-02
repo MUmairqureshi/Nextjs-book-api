@@ -10,17 +10,6 @@ type Props = {
         id: string
     }
 }
-export async function GETORDERS(request: NextRequest) {
-  const conn = postgres({
-    ssl: require,
-  });
-  const result : Todo[] = await conn.unsafe("SELECT * FROM bookorder");
-  console.log("backend result", result);
-  return  NextResponse.json(result);
-}
-
-
-
 
 
 export async function GET(request: NextRequest ,{params:{id}}:Props) {
