@@ -5,13 +5,9 @@ const conn = postgres({
     ssl: require,
 });
 
-type Props = {
-    params: {
-      id: string
-    }
-}
+ 
 
-export async function GET(request: NextRequest ,{params:{id}}:Props) {
+export async function GET(request: NextRequest ,{params:{id}}:Pps) {
     try{
     const result = await conn.unsafe(`SELECT * FROM bookdata where id as  id  = $1`, [id]);
     if (result.length === 0) {
