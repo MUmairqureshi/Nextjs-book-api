@@ -23,7 +23,7 @@ export async function POST(request:NextRequest){
 
     const newClient = await conn.unsafe('INSERT INTO clients (client_name, client_email) VALUES ($1, $2) RETURNING *', [clientName, clientEmail]);
  
-    const token = jwt.sign({ clientId: newClient[0].id },  process.env.JWT_SECRET);
+    const token = jwt.sign({ clientId: newClient[0].id },  process.env.JWT_SECRET!);
 console.log(token)
 
 
